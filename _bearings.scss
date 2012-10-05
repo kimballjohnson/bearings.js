@@ -1,0 +1,145 @@
+$bearingsBgColor: $grayLighter !default;
+$bearingsBorderColor:  lighten($grayLight, 25%) !default;
+$bearingsDividerColor: rgba($linkColor, .75) !default;
+$bearingsActiveColor:  lighten($grayDark, 25%) !default;
+
+.bearings {
+	background-color: $bearingsBgColor;
+	margin-bottom: 8px;
+	height:37px;
+	position: relative;
+	overflow:hidden;
+	width:100%;
+
+	.breadcrumb {
+
+		@include clearfix();
+
+		background: none;
+		position:absolute;
+		padding: 1px 0 1px 1px;
+		height: 38px;
+		margin-bottom: 0;
+		white-space: nowrap;
+
+		filter:"progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+
+		.divider {
+			padding: 0 5px;
+			color: $bearingsDividerColor;
+			position: relative;
+			top: 0px;
+		}
+
+		li {		
+			vertical-align: middle;
+			line-height: 35px;
+			height:38px;
+		}
+
+		li.first-crumb {
+			margin-left: 8px;
+		}
+
+		li:last-child {
+			span {
+				opacity: 1;
+				transition: opacity .2s ease-in;
+				-moz-transition: opacity .2s ease-in;
+				-webkit-transition: opacity .2s ease-in;
+			}
+
+			&.justAdded span {
+				opacity:0;
+			}
+		}
+
+		a:hover {
+			text-decoration: none;
+		}
+	}
+
+	.list-container{
+		float: left;
+		overflow: hidden;
+		height:37px;
+		width: 100%;
+		position:relative;
+
+		&:after { 
+			@include box-shadow(-21px -19px 30px $bearingsBgColor);
+			content: "";
+			display: block;
+			width: 30px;
+			height: 115px;
+			position: absolute;
+			right: -30px;
+			top: 0;
+		}
+	}
+
+	.active {
+		color: $bearingsActiveColor;
+	}
+
+	.pagination {
+		@include box-shadow( 4px 0px 9px rgba($bearingsBorderColor, .75) );
+
+		height: 37px;
+		margin:0;
+		padding:0;
+		float:left;
+		position: absolute;
+		left:0;
+		top:0;
+		z-index: 12;
+		background-color: $bearingsBgColor;
+
+		li {
+			display: inline;
+			height: 36px;
+			width: 32px;
+			.ie7fix {
+				font-size: 1px;
+				width:0px;
+			}
+		}
+
+		ul {
+			@include border-radius(3px);
+			@include ie7-inline-block();
+			@include box-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+			margin-bottom: 0;
+			margin-left: 0;
+		}
+
+		a {
+			float: left;
+			padding: 2px 8px 0 8px;
+			line-height: 32px;
+			text-decoration: none;
+			border: 1px solid white;
+			border-left-width: 0;
+
+			&:hover {
+				background-color: darken($bearingsBgColor, 5%);
+			}
+
+			&:focus {
+ 				outline: none;
+ 			}
+		}
+	}
+}
+
+.modal .bearings {
+	@include border-radius(4px);
+	overflow: hidden;
+	background: $bearingsBgColor;
+	border: 1px solid $bearingsBorderColor;
+	width:inherit;
+
+	.pagination {
+		background-color: darken($bearingsBgColor, 3%);
+	}
+}
