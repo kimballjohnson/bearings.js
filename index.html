@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bearings.js - a Bootstrapped jQuery plugin for breadcrumb-style navigation</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <ul class="breadcrumb" style="left: 33px;">
+      <li class="first-crumb"><a href="http://github.com">GitHub</a><i class="icon-chevron-right divider"></i></li>
+      <li><a href="http://github.com/huddle">Huddle</a><i class="icon-chevron-right divider"></i></li>
+      <li><a href="http://github.com/huddle/bearings.js">Bearings.js</a><i class="icon-chevron-right divider"></i></li>
+    </ul>
+    <p>bearings.js is a Bootstrapped jQuery plugin for breadcrumb-style navigation</p>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.bearings.js"></script>
+    <script>
+    $(document).ready(function () {
+      $('#breadcrumb').bearings();
+    });
+    </script>
+  </body>
+</html>
